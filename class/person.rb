@@ -1,7 +1,7 @@
 class Person
   attr_accessor :name, :age
   attr_reader :id
-  
+
   def initialize(name = 'Unknown', age = nil, parent_permission: true)
     @id = generate_id
     @name = name
@@ -14,12 +14,12 @@ class Person
   end
 
   private
+
   def of_age?
     @age && @age >= 18
   end
 
   def generate_id
-    rand(1..1000000)
+    rand(1..1_000_000)
   end
-
 end
