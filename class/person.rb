@@ -29,5 +29,4 @@ class Person < Nameable
   def generate_id
     rand(1..1_000_000)
   end
-
 end
