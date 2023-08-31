@@ -9,7 +9,7 @@ kasalivich = Student.new(42, 'Kasalivich')
 john = Student.new(30, 'John')
 
 ruby_class = Classroom.new('Ruby Class')
-react_class = Classroom.new('React Class')
+Classroom.new('React Class')
 
 neo.classroom = ruby_class
 kasalivich.classroom = ruby_class
@@ -40,4 +40,4 @@ puts(reclaim_your_heart.rentals.map { |r| "-#{r.person.name} at #{r.date}" })
 puts "\n"
 
 puts "Book '#{the_road_to_mecca.title}' have #{the_road_to_mecca.rentals.length} rentals:"
-puts(the_road_to_mecca.rentals.map { |r| "-#{r.person.name} at #{r.date} "})
+puts(the_road_to_mecca.rentals.map { |r| "-#{r.person.name} at #{r.date} " })
