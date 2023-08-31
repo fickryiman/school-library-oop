@@ -12,8 +12,7 @@
     - [Tech Stack ](#tech-stack-)
     - [Tools i have used for this project ](#tools-i-have-used-for-this-project-)
     - [Key Features ](#key-features-)
-  - [🚀 Live Demo ](#-live-demo-)
-  - [💻 Getting Started ](#-getting-started-)
+  - [� Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
@@ -121,11 +120,11 @@ You will be building your "OOP school library" app for more than a week. Here is
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
-## 🚀 Live Demo <a name=""></a>
+<!-- ## 🚀 Live Demo <a name=""></a>
 
 <!-- > Add a link to your deployed project. -->
 <!-- - Click the following url for [... Live Demo ...]() -->
-- Not live yet
+- Not live yet -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
