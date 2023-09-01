@@ -15,25 +15,25 @@ class App
   def create_person
     print 'Do you want to create a student(1) or a teacher(2)? [Input the number]: '
     input_result = gets.chomp
-
+    
     print 'Age: '
     age = gets.chomp.to_i
-
+    
     print 'Name: '
     name = gets.chomp
-
+    
     case input_result
     when '1'
       print 'Has parent granted the permission? [Y/N]:'
       permission = gets.chomp
       permission = true if %w[Y y].include?(permission)
       permission = false if %w[N n].include?(permission)
-
+      
       @persons << Student.new(age, name, parent_permission: permission)
     when '2'
       print 'Specialization: '
       specialization = gets.chomp
-
+      
       @persons << Teacher.new(specialization, age, name)
     end
 
