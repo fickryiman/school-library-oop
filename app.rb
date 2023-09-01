@@ -8,7 +8,7 @@ class App
   def initialize()
     @persons = []
     @books = []
-    @rentals = [] 
+    @rentals = []
   end
 
   # create a person
@@ -23,18 +23,18 @@ class App
     name = gets.chomp
 
     case input_result
-      when '1'
-        print 'Has parent granted the permission? [Y/N]:'
-        permission = gets.chomp
-        permission = true if %w[Y y].include?(permission)
-        permission = false if %w[N n].include?(permission)
+    when '1'
+      print 'Has parent granted the permission? [Y/N]:'
+      permission = gets.chomp
+      permission = true if %w[Y y].include?(permission)
+      permission = false if %w[N n].include?(permission)
 
-        @persons << Student.new(age, name, parent_permission: permission)
-      when '2'
-        print 'Specialization: '
-        specialization = gets.chomp
+      @persons << Student.new(age, name, parent_permission: permission)
+    when '2'
+      print 'Specialization: '
+      specialization = gets.chomp
 
-        @persons << Teacher.new(specialization, age, name)
+      @persons << Teacher.new(specialization, age, name)
     end
 
     puts 'Person created successfully'
@@ -51,7 +51,7 @@ class App
   def create_book
     print 'Title: '
     title = gets.chomp
-    
+
     print 'Author: '
     author = gets.chomp
 

@@ -30,7 +30,7 @@ loop do
     app.list_rentals_by_person_id
   when '7'
     print 'Thank you for using this app!'
-    break;
+    break
   end
 
   puts "\n"
