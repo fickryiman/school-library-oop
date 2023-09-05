@@ -124,7 +124,7 @@ You will be building your "OOP school library" app for more than a week. Here is
 
 <!-- > Add a link to your deployed project. -->
 <!-- - Click the following url for [... Live Demo ...]() -->
-- Not live yet -->
+- Not live yet 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -184,6 +184,13 @@ To run the project, execute the following command:
 - GitHub: [@fickryiman](https://github.com/fickryiman)
 - Facebook: [@fickry.bil.iman](https://www.facebook.com/fickry.bil.iman)
 - LinkedIn: [fickry-bil-iman](https://www.linkedin.com/in/fickry-bil-iman)
+
+
+👤 **Youssef OUBARI**
+
+- GitHub: [@yusufobr](https://github.com/yusufobr)
+- Twitter: [@OubariY](https://twitter.com/OubariY)
+- LinkedIn: [Youssef OUBARI](https://www.linkedin.com/in/youssef-oubari-370451147)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
