@@ -9,6 +9,37 @@ class App
     @persons = []
     @books = []
     @rentals = []
+    @title = ''
+    @author = ''
+    @name = ''
+    @age = ''
+    @parent_permission = false
+    @specialization = ''
+  end
+
+  # list all book
+  def list_books
+    @books.each do |b|
+      print_book(b)
+    end
+  end
+
+  # print book
+  def print_book(book)
+    puts "Title: \"#{book.title}\", Author: #{book.author}"
+  end
+
+  # list all person
+  def list_persons
+    puts 'No person found! Please create a person.' if @persons.empty?
+    @persons.each do |p|
+      print_person(p)
+    end
+  end
+
+  # print person
+  def print_person(person)
+    puts "[#{person.class.name}] - Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
   end
 
   # create a person
@@ -16,35 +47,61 @@ class App
     print 'Do you want to create a student(1) or a teacher(2)? [Input the number]: '
     input_result = gets.chomp
 
+    case input_result
+    when '1'
+      create_student
+    when '2'
+      create_teacher
+    else
+      puts 'Invalid Input!'
+    end
+  end
+
+  # create a person - student
+  def create_student
     print 'Age: '
     age = gets.chomp.to_i
 
     print 'Name: '
     name = gets.chomp
 
-    case input_result
-    when '1'
-      print 'Has parent granted the permission? [Y/N]:'
-      permission = gets.chomp
-      permission = true if %w[Y y].include?(permission)
-      permission = false if %w[N n].include?(permission)
+    permission = choose_parent_permission
 
-      @persons << Student.new(age, name, parent_permission: permission)
-    when '2'
-      print 'Specialization: '
-      specialization = gets.chomp
-
-      @persons << Teacher.new(specialization, age, name)
-    end
-
+    student = Student.new(age, name, parent_permission: permission)
+    @persons << student
     puts 'Person created successfully'
   end
 
-  # list all person
-  def list_persons
-    @persons.each do |p|
-      print_person(p)
+  # choose parent permission
+  def choose_parent_permission
+    print 'has parent granted the permission? [Y/N]: '
+    permission = gets.chomp.downcase
+
+    case permission
+    when 'y'
+      true
+    when 'n'
+      false
+    else
+      puts 'Invalid Input!'
+      choose_parent_permission
     end
+  end
+
+  # create a person - teacher
+  def create_teacher
+    print 'Age: '
+    age = gets.chomp.to_i
+
+    print 'Name: '
+    name = gets.chomp
+
+    print 'Specialization: '
+    specialization = gets.chomp
+
+    teacher = Teacher.new(specialization, age, name)
+    @persons << teacher
+    puts 'Person created successfully'
   end
 
   # create a book
@@ -55,15 +112,9 @@ class App
     print 'Author: '
     author = gets.chomp
 
-    @books << Book.new(title, author)
+    book = Book.new(title, author)
+    @books << book
     puts 'Book created successfully'
-  end
-
-  # list all book
-  def list_books
-    @books.each do |b|
-      print_book(b)
-    end
   end
 
   # create a rental
@@ -101,15 +152,5 @@ class App
     rentals.each do |r|
       puts "Date: #{r.date}, Book: #{r.book.title} by #{r.book.author}"
     end
-  end
-
-  # print book
-  def print_book(book)
-    puts "Title: \"#{book.title}\", Author: #{book.author}"
-  end
-
-  # print person
-  def print_person(person)
-    puts "[#{person.class.name}] - Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
   end
 end
