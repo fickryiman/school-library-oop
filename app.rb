@@ -16,20 +16,19 @@ class App
 
   def list_books
     puts "\nNo book found! Please create a book." if @books.empty?
-    @books.each do |book| 
+    @books.each do |book|
       puts "Title: \"#{book.title}\", Author: #{book.author}"
     end
   end
 
   def list_persons
     puts "\nNo person found! Please create a person." if @persons.empty?
-    @persons.each do |p| 
+    @persons.each do |p|
       person_type = p.class.name
+      print "[#{p.class.name}] - ID: #{p.id}, Name: #{p.name}, "
       if person_type == 'Student'
-        print "[#{p.class.name}] - ID: #{p.id}, Name: #{p.name}, "
         puts "Age: #{p.age}, Parent Permission: #{p.parent_permission}"
       else
-        print "[#{p.class.name}] - ID: #{p.id}, Name: #{p.name}, " 
         puts "Age: #{p.age}, Specialization: #{p.specialization}"
       end
     end
@@ -144,9 +143,9 @@ class App
     json_persons = 'data/persons.json'
     data = @persons.map do |person|
       if person.instance_of? Student
-        { name: person.name, age: person.age, type: 'Student', parent_permission: person.parent_permission}
+        { name: person.name, age: person.age, type: 'Student', parent_permission: person.parent_permission }
       else
-        { name: person.name, age: person.age, type: 'Teacher', specialization: person.specialization}
+        { name: person.name, age: person.age, type: 'Teacher', specialization: person.specialization }
       end
     end
     file = File.open(json_persons, 'w')
