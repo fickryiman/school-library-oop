@@ -12,7 +12,7 @@
     - [Tech Stack ](#tech-stack-)
     - [Tools i have used for this project ](#tools-i-have-used-for-this-project-)
     - [Key Features ](#key-features-)
-  - [� Getting Started ](#-getting-started-)
+  - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
@@ -199,6 +199,7 @@ To run the project, execute the following command:
 
 <!-- > Describe 1 - 3 features you will add to the project. -->
 - add UI for school library app
+- preserve the data (person, book, rental)into json file
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
