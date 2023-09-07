@@ -14,52 +14,34 @@ class App
     @rentals = rentals_data
   end
 
-  # list all book
   def list_books
-    puts "\n"
-    puts 'No book found! Please create a book.' if @books.empty?
-    @books.each do |book|
-      print_book(book)
+    puts "\nNo book found! Please create a book." if @books.empty?
+    @books.each do |book| 
+      puts "Title: \"#{book.title}\", Author: #{book.author}"
     end
   end
 
-  # print book
-  def print_book(book)
-    puts "Title: \"#{book.title}\", Author: #{book.author}"
-  end
-
-  # list all person
   def list_persons
-    puts "\n"
-    puts 'No person found! Please create a person.' if @persons.empty?
-    @persons.each do |p|
-      print_person(p)
+    puts "\nNo person found! Please create a person." if @persons.empty?
+    @persons.each do |p| 
+      person_type = p.class.name
+      if person_type == 'Student'
+        print "[#{p.class.name}] - ID: #{p.id}, Name: #{p.name}, "
+        puts "Age: #{p.age}, Parent Permission: #{p.parent_permission}"
+      else
+        print "[#{p.class.name}] - ID: #{p.id}, Name: #{p.name}, " 
+        puts "Age: #{p.age}, Specialization: #{p.specialization}"
+      end
     end
   end
 
-  # print person
-  def print_person(person)
-    person_type = person.class.name
-    if person_type == 'Student'
-      print "[#{person.class.name}] - ID: #{person.id}, Name: #{person.name}, "
-      puts "Age: #{person.age}, Parent Permission: #{person.parent_permission}"
-    else
-      puts "[#{person.class.name}] - ID: #{person.id}, Name: #{person.name}, " 
-      puts "Age: #{person.age}, Specialization: #{person.specialization}"
-    end
-  end
-
-  # create a person
   def create_person
     print "\nDo you want to create a student(1) or a teacher(2)? [Input the number]: "
     user_input = gets.chomp
-
     print 'Age: '
     age = gets.chomp.to_i
-
     print 'Name: '
     name = gets.chomp
-
     case user_input
     when '1'
       permission = choose_parent_permission
@@ -71,11 +53,9 @@ class App
     end
   end
 
-  # choose parent permission
   def choose_parent_permission
     print 'has parent granted the permission? [Y/N]: '
     permission = gets.chomp.downcase
-
     case permission
     when 'y'
       permission = true
@@ -88,14 +68,12 @@ class App
     permission
   end
 
-  # create a person - student
   def create_student(age, name, permission)
     student = Student.new(age, parent_permission: permission, name: name)
     @persons << student
     puts "\nPerson (Student) created successfully"
   end
 
-  # create a person - teacher
   def create_teacher(age, name)
     print 'Specialization: '
     specialization = gets.chomp
@@ -104,20 +82,16 @@ class App
     puts "\nPerson (Teacher) created successfully"
   end
 
-  # create a book
   def create_book
     print 'Book Title: '
     book_title = gets.chomp
-
     print 'Book Author: '
     book_author = gets.chomp
-
     book = Book.new(book_title, book_author)
     @books << book
     puts 'Book has successfully created'
   end
 
-  # create a rental
   def create_rental
     puts 'Select a book from the following list by number'
     @books.each_with_index do |book, index|
@@ -126,7 +100,6 @@ class App
 
     book_index = gets.chomp.to_i
     selected_book = @books[book_index]
-
     puts 'Select a person from the following list by the number (not the ID number)'
     @persons.each_with_index do |person, index|
       puts "#{index}). Name: #{person.name} ID: #{person.id} Age: #{person.age}"
@@ -134,29 +107,23 @@ class App
 
     person_index = gets.chomp.to_i
     selected_person = @persons[person_index]
-
     date = Date.today
-
     rental = Rental.new(date, selected_person, selected_book)
     @rentals << rental
-    puts "\n"
-    puts "Book Rent has successfully created at #{date}"
+    puts "\nBook Rent has successfully created at #{date}"
   end
 
   # List all rentals for a given person id
   def list_rentals_by_person_id
     if @rentals.empty?
-      puts "\n"
-      puts 'No rental data found! Please create a rental.'
+      puts "\nNo rental data found! Please create a rental."
       return
     end
 
     print 'Please enter a person ID: '
     input_person_id = gets.chomp.to_i
-
     person = @persons.find { |p| p.id == input_person_id }
     rentals = @rentals.select { |rent| rent.person == person }
-
     puts "Books Rent for ID \"#{input_person_id}\" is: "
     rentals.each do |rent|
       puts "Date: #{rent.date}, Book: \"#{rent.book.title}\" by #{rent.book.author}"
@@ -166,11 +133,7 @@ class App
   def save_books_data
     json_books = 'data/books.json'
     data = @books.map do |book|
-      {
-        title: book.title,
-        author: book.author,
-        rentals: book.rentals
-      }
+      { title: book.title, author: book.author, rentals: book.rentals }
     end
     file = File.open(json_books, 'w')
     file.puts(data.to_json)

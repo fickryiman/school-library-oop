@@ -11,6 +11,7 @@ def menu_display
   puts '6. List all rentals for a given person ID'
   puts '7. Quit'
 end
+
 def options(app, choice)
   case choice
   when 1
@@ -27,6 +28,7 @@ def options(app, choice)
     app.list_rentals_by_person_id
   end
 end
+
 def start
   puts "\nWelcome to School Library App! \n"
   # load data from json files and parse it to the app
@@ -48,6 +50,7 @@ def start
     options(app, user_input)
   end
 end
+
 def load_book_data
   books = []
   json_books = './data/books.json'
@@ -60,6 +63,7 @@ def load_book_data
   end
   books
 end
+
 def load_person_data
   persons = []
   json_persons = './data/persons.json'
@@ -77,6 +81,7 @@ def load_person_data
   end
   persons
 end
+
 def load_rental_data(persons, books)
   all_rentals = []
   json_rentals = './data/rentals.json'
