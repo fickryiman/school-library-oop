@@ -41,9 +41,11 @@ class App
   def print_person(person)
     person_type = person.class.name
     if person_type == 'Student'
-      puts "[#{person.class.name}] - ID: #{person.id}, Name: #{person.name}, Age: #{person.age}, Parent Permission: #{person.parent_permission}"
+      print "[#{person.class.name}] - ID: #{person.id}, Name: #{person.name}, "
+      puts "Age: #{person.age}, Parent Permission: #{person.parent_permission}"
     else
-      puts "[#{person.class.name}] - ID: #{person.id}, Name: #{person.name}, Age: #{person.age}, Specialization: #{person.specialization}"
+      puts "[#{person.class.name}] - ID: #{person.id}, Name: #{person.name}, " 
+      puts "Age: #{person.age}, Specialization: #{person.specialization}"
     end
   end
 
