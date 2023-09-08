@@ -17,6 +17,7 @@
     - [Setup](#setup)
     - [Install](#install)
     - [Usage](#usage)
+    - [Unit Test](#unit-test)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -170,6 +171,15 @@ To run the project, execute the following command:
 ```sh
   # npm run build (production environment)
   ruby main.rb (development environment)
+```
+
+### Unit Test
+
+To run unit test, execute the following command:
+
+```sh
+  # npm run build (production environment)
+  rspec
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
