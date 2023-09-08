@@ -7,6 +7,8 @@ class TrimmerDecorator < Decorator
   end
 
   def correct_name
-    @nameable.correct_name.strip
+    stripped = @nameable.correct_name.strip
+    trimmed = stripped[0..9]
+    @nameable.correct_name.length > 10 ? trimmed.capitalize : stripped.capitalize
   end
 end

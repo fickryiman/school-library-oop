@@ -7,7 +7,6 @@ class CapitalizeDecorator < Decorator
   end
 
   def correct_name
-    trimmed = @nameable.correct_name[0..9]
-    @nameable.correct_name.length > 10 ? trimmed.capitalize : @nameable.correct_name.capitalize
+    @nameable.correct_name.capitalize
   end
 end

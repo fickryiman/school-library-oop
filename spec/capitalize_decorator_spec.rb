@@ -22,27 +22,5 @@ describe CapitalizeDecorator do
       result = decorated_nameable.correct_name
       expect(result).to eql('Fickry')
     end
-
-    it 'returns the correct name from the decorated object without truncation' do
-      nameable = double('nameable')
-      decorated_nameable = CapitalizeDecorator.new(nameable)
-
-      allow(nameable).to receive(:correct_name).and_return('john')
-
-      result = decorated_nameable.correct_name
-
-      expect(result).to eq('John')
-    end
-
-    it 'returns the correct name from the decorated object with truncation' do
-      nameable = double('nameable')
-      decorated_nameable = CapitalizeDecorator.new(nameable)
-
-      allow(nameable).to receive(:correct_name).and_return('Lorem ipsum dolor')
-
-      result = decorated_nameable.correct_name
-
-      expect(result).to eq('Lorem ipsu')
-    end
   end
 end
